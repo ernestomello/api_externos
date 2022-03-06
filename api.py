@@ -24,6 +24,7 @@ def get_users():
         cur = conn.cursor()
         cur.execute('select * from socio')
         rows = cur.fetchall()
+        #aca transforma las rows en un formato json
         resp = jsonify(rows)
         resp.status_code = 200
         return resp
