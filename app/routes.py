@@ -1,21 +1,25 @@
+from app import app
 from crypt import methods
 from operator import methodcaller
 from flask import Flask, jsonify,request,flash
 from flaskext.mysql import MySQL
-#from mysql import mysql
+from flask_httpauth import HTTPBasicAuth
+from app.mysql import mysql
 
 
-app = Flask(__name__)
+basic_auth = HTTPBasicAuth
 
-mysql = MySQL()
+#@basic_auth.verify_password
+#def verify_password(username, password):
+#    conn = mysql.connect()
+#    cur = conn.cursor()
+#    cur.execute('select * from socio')
+#    user = cur.fetchall()
+    
 
-# MySql configurations
 
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'pao2930'
-app.config['MYSQL_DATABASE_DB'] = 'siet_fe'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
+
+
 
 @app.route('/users', methods =['GET'])
 def get_users():

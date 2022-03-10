@@ -8,5 +8,5 @@ logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,'/home/ernesto/Escritorio/api_externos/') 
 sys.path.insert(0,'/home/ernesto/Escritorio/api_externos/venv/lib/python3.6/site_packages') 
                     
-from api import app as application 
+from cobranza import app as application 
 application.secret_key = 'Todos somos buenos'
